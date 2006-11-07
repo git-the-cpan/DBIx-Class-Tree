@@ -1,0 +1,25 @@
+---
+name: DBIx-Class-Tree
+version: 0.01000
+author:
+  - 'Aran Clary Deltac <bluefeet@cpan.org>'
+abstract: Manipulate and anaylze tree structured data.  (EXPERIMENTAL)
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  DBIx::Class: 0.06
+build_requires:
+  DBD::SQLite: 1.11
+provides:
+  DBIx::Class::Tree:
+    file: lib/DBIx/Class/Tree.pm
+    version: 0.01000
+  DBIx::Class::Tree::AdjacencyList:
+    file: lib/DBIx/Class/Tree/AdjacencyList.pm
+  DBIx::Class::Tree::AdjacencyList::Ordered:
+    file: lib/DBIx/Class/Tree/AdjacencyList/Ordered.pm
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

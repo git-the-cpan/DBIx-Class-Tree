@@ -1,0 +1,18 @@
+
+Revision history for DBIx::Class::Tree
+
+0.01000 2006-11-06
+    - Added is_leaf, is_root, and is_branch to AdjacencyList.
+    - Added a validation override for set_primary_key().
+    - Removed the _grouping_clause override method.
+    - Created a TODO document.
+    - attach_child() attach_sibling() now accept more than 
+      one object to attach.
+    - Added tests for Ordered.
+    - Renamed Positional as Ordered.
+    - Added tests for AdjacencyList.
+    - Moved Positional functionality out of AdjacencyList
+      and in to AdjacencyList::Positional.
+    - AdjacencyList module created.
+    - First version.
+
