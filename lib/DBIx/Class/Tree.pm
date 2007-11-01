@@ -4,10 +4,9 @@ package DBIx::Class::Tree;
 use strict;
 use warnings;
 
-use vars qw( $VERSION );
 use base qw( DBIx::Class );
 
-$VERSION = '0.01000';
+our $VERSION = '0.02000';
 
 1;
 __END__

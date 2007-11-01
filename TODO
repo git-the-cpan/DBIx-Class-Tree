@@ -9,4 +9,6 @@
  - Add an ancestors() and descendants() method with
    support for resultset cacheing.
  - Not all methods are covered by the tests.
+ - has_ancestor() method.
+ - DBIx::Class::Tree::NestedSet
 

@@ -31,6 +31,10 @@ Specify the column that contains the parent ID of each row.
   package My::Employee;
   __PACKAGE__->parent_column('parent_id');
 
+Optionally, automatically maintane a consistent tree structure.
+
+  __PACKAGE__->repair_tree( 1 );
+
 Thats it, now you can modify and analyze the tree.
 
   #!/usr/bin/perl
@@ -81,12 +85,48 @@ sub parent_column {
         my $primary_col = ($class->primary_columns())[0];
         $class->belongs_to( '_parent' => $class => { "foreign.$primary_col" => "self.$parent_col" } );
         $class->has_many( 'children' => $class => { "foreign.$parent_col" => "self.$primary_col" } );
-        $class->has_many( 'parents' => $class => { "foreign.$primary_col" => "self.$parent_col" } );
+        $class->has_many( 'parents' => $class => { "foreign.$primary_col" => "self.$parent_col" }, { cascade_delete => 0 } );
         $class->_parent_column( $parent_col );
         return 1;
     }
     return $class->_parent_column();
 }
+
+=head2 repair_tree
+
+  __PACKAGE__->repair_tree( 1 );
+
+When set a true value this flag causes all changes to a node's parent to
+trigger an integrity check on the tree.  If, when changing a node's parent
+to one of it's descendents then all its children will first be moved to have
+the same current parent, and then the node's parent is changed.
+
+So, for example, if the tree is like this:
+
+  A
+    B
+      C
+      D
+        E
+    F
+
+And you execute:
+
+  $b->parent( $d );
+
+Since D is a descendant of B then all of B's siblings get their parent
+changed to A.  Then B's parent is set to D.
+
+  A
+    C
+    D
+      B
+      E
+    F
+
+=cut
+
+__PACKAGE__->mk_classdata( 'repair_tree' => 0 );
 
 =head2 parent
 
@@ -113,11 +153,46 @@ sub parent {
             $new_parent = $new_parent->id() || croak('Parent object does not have an ID');;
         }
         return 0 if ($new_parent == ($self->get_column($parent_col)||0));
+
+        if ($self->repair_tree()) {
+            my $found    = $self->has_descendant( $new_parent );
+            if ($found) {
+                my $children = $self->children();
+
+                while (my $child = $children->next()) {
+                    $child->parent( $self->$parent_col() );
+                }
+            }
+        }
+
         $self->set_column( $parent_col => $new_parent );
         $self->update();
         return 1;
     }
     return $self->_parent();
+}
+
+=head2 has_descendant
+
+  if ($employee->has_descendant( $id )) { ... }
+
+Returns true if the object has a descendant with the
+specified ID.
+
+=cut
+
+sub has_descendant {
+    my ($self, $find_id) = @_;
+
+    my $children = $self->children();
+    while (my $child = $children->next()) {
+        if ($child->id() eq $find_id) {
+            return 1;
+        }
+        return 1 if ($child->has_descendant( $find_id ));
+    }
+
+    return 0;
 }
 
 =head2 parents
@@ -217,10 +292,14 @@ Returns 1 if the object has no children, and 0 otherwise.
 
 sub is_leaf {
     my( $self ) = @_;
-    return $self->result_source->resultset->search(
+    my $children_
+
+    my $has_child = $self->result_source->resultset->search(
         { $self->_parent_column => $self->id() },
         { limit => 1 }
     )->count();
+
+    return $has_child ? 0 : 1;
 }
 
 =head2 is_root
@@ -233,7 +312,7 @@ Returns 1 if the object has no parent, and 0 otherwise.
 
 sub is_root {
     my( $self ) = @_;
-    return ( $self->get_column( $self->_parent_column ) ? 1 : 0 );
+    return ( $self->get_column( $self->_parent_column ) ? 0 : 1 );
 }
 
 =head2 is_branch
@@ -260,7 +339,7 @@ an error will be thrown.
 
 =cut
 
-sub set_primary_ley {
+sub set_primary_key {
     my $self = shift;
     if (@_>1) {
         croak('You may only specify a single column as the primary key for adjacency tree classes');

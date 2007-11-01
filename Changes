@@ -1,6 +1,15 @@
 
 Revision history for DBIx::Class::Tree
 
+0.02000 2007-10-29
+    - Use Module::Install instead of Module::Build.
+    - Fixed is_leaf, is_branch, and is_root.
+    - Renamed set_primary_ley as set_primary_key.
+    - New has_descdendant() method.
+    - New repair_tree flag.
+    - parent() now repairs the tree if needed/allowed.
+    - Do not cascade delete via the parents() relationship.
+
 0.01000 2006-11-06
     - Added is_leaf, is_root, and is_branch to AdjacencyList.
     - Added a validation override for set_primary_key().
