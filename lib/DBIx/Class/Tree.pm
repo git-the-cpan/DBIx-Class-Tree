@@ -6,7 +6,7 @@ use warnings;
 
 use base qw( DBIx::Class );
 
-our $VERSION = '0.02000';
+our $VERSION = '0.02001';
 
 1;
 __END__

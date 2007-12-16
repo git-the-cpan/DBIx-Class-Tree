@@ -292,7 +292,6 @@ Returns 1 if the object has no children, and 0 otherwise.
 
 sub is_leaf {
     my( $self ) = @_;
-    my $children_
 
     my $has_child = $self->result_source->resultset->search(
         { $self->_parent_column => $self->id() },

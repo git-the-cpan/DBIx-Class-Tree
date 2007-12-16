@@ -1,6 +1,9 @@
 
 Revision history for DBIx::Class::Tree
 
+0.02001 2007-12-16
+    - Remove invalid line.
+
 0.02000 2007-10-29
     - Use Module::Install instead of Module::Build.
     - Fixed is_leaf, is_branch, and is_root.
