@@ -6,14 +6,14 @@ use warnings;
 
 use base qw( DBIx::Class );
 
-our $VERSION = '0.02001';
+our $VERSION = '0.03000';
 
 1;
 __END__
 
 =head1 NAME
 
-DBIx::Class::Tree - Manipulate and anaylze tree structured data.  (EXPERIMENTAL)
+DBIx::Class::Tree - Manipulate and anaylze tree structured data.
 
 =head1 DESCRIPTION
 
@@ -23,10 +23,10 @@ trees of data with DBIx::Class.
 =head1 COMPONENTS
 
 L<DBIx::Class::Tree::AdjacencyList> - Manage a tree of data using the 
-common adjacency list model. (EXPERIMENTAL)
+common adjacency list model.
 
 L<DBIx::Class::Tree::AdjacencyList::Ordered> - Glue DBIx::Class::Ordered 
-and DBIx::Class::Tree::AdjacencyList together. (EXPERIMENTAL)
+and DBIx::Class::Tree::AdjacencyList together.
 
 =head1 DAG
 

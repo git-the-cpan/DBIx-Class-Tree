@@ -14,7 +14,7 @@ __PACKAGE__->load_components(qw(
 
 =head1 NAME
 
-DBIx::Class::Tree::AdjacencyList::Ordered - Glue DBIx::Class::Ordered and DBIx::Class::Tree::AdjacencyList together. (EXPERIMENTAL)
+DBIx::Class::Tree::AdjacencyList::Ordered - Glue DBIx::Class::Ordered and DBIx::Class::Tree::AdjacencyList together.
 
 =head1 SYNOPSIS
 

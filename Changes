@@ -1,6 +1,13 @@
 
 Revision history for DBIx::Class::Tree
 
+0.03000 2009-08-18
+    - Removed EXPERIMENTAL flags, because after 2 years there'd be bugs
+      if there were any serious problems. (Ian Wells)
+    - Fix borked tests (DBIx-Class 0.081 got rid of the loophole they used)
+      (ribasushi)
+    - Increase DBIC dependency to 0.08100. (bluefeet)
+
 0.02001 2007-12-16
     - Remove invalid line.
 

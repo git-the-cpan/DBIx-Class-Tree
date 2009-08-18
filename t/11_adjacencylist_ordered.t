@@ -4,15 +4,20 @@ use warnings;
 use lib 't/lib';
 
 use Test::More;
-use TreeTest;
 
-TreeTest::Schema::Node->load_components(qw(
+BEGIN {   # This must happen before the schema is loaded 
+
+  require TreeTest::Schema::Node;
+
+  TreeTest::Schema::Node->load_components(qw(
     Tree::AdjacencyList::Ordered
-));
+  ));
 
-TreeTest::Schema::Node->position_column( 'position' );
-TreeTest::Schema::Node->parent_column( 'parent_id' );
+  TreeTest::Schema::Node->position_column( 'position' );
+  TreeTest::Schema::Node->parent_column( 'parent_id' );
+}
 
+use TreeTest;
 my $tests = TreeTest::count_tests();
 plan tests => $tests;
 TreeTest::run_tests();

@@ -9,7 +9,7 @@ use Carp qw( croak );
 
 =head1 NAME
 
-DBIx::Class::Tree::AdjacencyList - Manage a tree of data using the common adjacency list model. (EXPERIMENTAL)
+DBIx::Class::Tree::AdjacencyList - Manage a tree of data using the common adjacency list model.
 
 =head1 SYNOPSIS
 

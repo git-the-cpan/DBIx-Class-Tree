@@ -1,6 +1,5 @@
 NAME
     DBIx::Class::Tree - Manipulate and anaylze tree structured data.
-    (EXPERIMENTAL)
 
 DESCRIPTION
     The tree modules provide the tools to represent, modify, and analyze
@@ -8,10 +7,10 @@ DESCRIPTION
 
 COMPONENTS
     DBIx::Class::Tree::AdjacencyList - Manage a tree of data using the
-    common adjacency list model. (EXPERIMENTAL)
+    common adjacency list model.
 
     DBIx::Class::Tree::AdjacencyList::Ordered - Glue DBIx::Class::Ordered
-    and DBIx::Class::Tree::AdjacencyList together. (EXPERIMENTAL)
+    and DBIx::Class::Tree::AdjacencyList together.
 
 DAG
     All tree related modules must conform to have and use the basic
