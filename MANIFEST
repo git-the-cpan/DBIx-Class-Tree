@@ -3,7 +3,6 @@ inc/Module/Install.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
-inc/Module/Install/GithubMeta.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/ReadmeFromPod.pm
@@ -23,5 +22,4 @@ t/lib/sqlite.sql
 t/lib/TreeTest.pm
 t/lib/TreeTest/Schema.pm
 t/lib/TreeTest/Schema/Node.pm
-t/var/test.db
 TODO

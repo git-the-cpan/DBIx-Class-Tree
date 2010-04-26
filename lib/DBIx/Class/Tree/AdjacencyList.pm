@@ -85,7 +85,7 @@ sub parent_column {
         my $primary_col = ($class->primary_columns())[0];
         $class->belongs_to( '_parent' => $class => { "foreign.$primary_col" => "self.$parent_col" } );
         $class->has_many( 'children' => $class => { "foreign.$parent_col" => "self.$primary_col" } );
-        $class->has_many( 'parents' => $class => { "foreign.$primary_col" => "self.$parent_col" }, { cascade_delete => 0 } );
+        $class->has_many( 'parents' => $class => { "foreign.$primary_col" => "self.$parent_col" }, { cascade_delete => 0, cascade_copy => 0 } );
         $class->_parent_column( $parent_col );
         return 1;
     }
@@ -259,8 +259,6 @@ sub siblings {
     return $rs->all() if (wantarray());
     return $rs;
 }
-
-=cut
 
 =head2 attach_sibling
 

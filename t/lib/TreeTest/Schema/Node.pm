@@ -2,8 +2,6 @@ package TreeTest::Schema::Node;
 use strict;
 use warnings;
 
-use Carp qw( croak );
-
 use base qw( DBIx::Class );
 
 __PACKAGE__->load_components(qw(
@@ -13,14 +11,16 @@ __PACKAGE__->load_components(qw(
 
 __PACKAGE__->table('nodes');
 
-__PACKAGE__->add_columns(qw(
-    node_id
+__PACKAGE__->add_columns(
+    node_id => { is_auto_increment => 1 },
+  qw/
     name
     parent_id
     position
     lft
     rgt
-));
+  /
+);
 
 __PACKAGE__->set_primary_key( 'node_id' );
 

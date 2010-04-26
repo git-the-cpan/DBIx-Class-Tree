@@ -3,12 +3,13 @@ use strict;
 use warnings;
 
 use Test::More;
+use Test::Exception;
 use TreeTest::Schema;
 
 our $NODE_COUNT = 80;
 
 sub count_tests {
-    my $count = 13;
+    my $count = 14;
     if( TreeTest::Schema::Node->can('position_column') ){
         $count ++;
     }
@@ -27,6 +28,7 @@ sub run_tests {
         my $node = $nodes->create({ name=>'child' });
         $node->parent( $parent_id );
     }
+
     ok( ($nodes->count()==81), 'correct number of nodes in random tree' );
     ok( ($nodes->find(3)->children->count()==7), 'node 3 has correct number of children' );
     ok( ($nodes->find(22)->children->count()==3), 'node 22 has correct number of children' );
@@ -52,6 +54,10 @@ sub run_tests {
     if( TreeTest::Schema::Node->can('position_column') ){
         ok( check_positions(scalar $root->children()), 'positions are correct' );
     }
+
+    lives_and ( sub {
+      is( $nodes->find(3)->copy({name => 'special'})->name,'special','copy test');
+    }, 'copy does not throw');
 }
 
 sub check_positions {

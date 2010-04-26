@@ -1,6 +1,10 @@
 
 Revision history for DBIx::Class::Tree
 
+0.03001 2010-04-25
+    - Fixed the parents (note the plural) relationship to
+      not have cascade_copy set by default
+
 0.03000 2009-08-18
     - Removed EXPERIMENTAL flags, because after 2 years there'd be bugs
       if there were any serious problems. (Ian Wells)
@@ -25,7 +29,7 @@ Revision history for DBIx::Class::Tree
     - Added a validation override for set_primary_key().
     - Removed the _grouping_clause override method.
     - Created a TODO document.
-    - attach_child() attach_sibling() now accept more than 
+    - attach_child() attach_sibling() now accept more than
       one object to attach.
     - Added tests for Ordered.
     - Renamed Positional as Ordered.
