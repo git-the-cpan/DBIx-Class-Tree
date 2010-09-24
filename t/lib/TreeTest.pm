@@ -9,7 +9,7 @@ use TreeTest::Schema;
 our $NODE_COUNT = 80;
 
 sub count_tests {
-    my $count = 14;
+    my $count = 17;
     if( TreeTest::Schema::Node->can('position_column') ){
         $count ++;
     }
@@ -50,6 +50,11 @@ sub run_tests {
 
     ok( ($nodes->find(22)->parents->count()==1), 'node 22 has correct number of parents' );
     ok( (($nodes->find(22)->parents->all())[0]->id()==$nodes->find(22)->parent->id()), 'node 22 parent matches parents' );
+
+    my @ancestors = $nodes->find(44)->ancestors();
+    ok( scalar(@ancestors)==8, 'node 44 has correct number of ancestors' );
+    ok( $ancestors[0]->id == $nodes->find(44)->parent_id, 'node 44\'s first ancestor is its parent' );
+    ok( $ancestors[-1]->name eq 'root', 'node 44\'s last ancestor is root' );
 
     if( TreeTest::Schema::Node->can('position_column') ){
         ok( check_positions(scalar $root->children()), 'positions are correct' );
