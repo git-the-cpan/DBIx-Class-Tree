@@ -1,6 +1,11 @@
 
 Revision history for DBIx::Class::Tree
 
+0.03003 2011-01-20
+    - The repository has been migrated from subversion to git
+    - Optimized is_leaf to not trigger another query if the children
+      releationship is prefetched
+
 0.03002 2010-09-23
     - Added various docs
     - Added ordered ancesors (nebulous)

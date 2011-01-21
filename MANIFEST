@@ -8,7 +8,6 @@ inc/Module/Install/Metadata.pm
 inc/Module/Install/ReadmeFromPod.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
-lib/DBIx/Class/.Tree.pm.swp
 lib/DBIx/Class/Tree.pm
 lib/DBIx/Class/Tree/AdjacencyList.pm
 lib/DBIx/Class/Tree/AdjacencyList/Ordered.pm
@@ -23,4 +22,5 @@ t/lib/sqlite.sql
 t/lib/TreeTest.pm
 t/lib/TreeTest/Schema.pm
 t/lib/TreeTest/Schema/Node.pm
+t/var/test.db
 TODO

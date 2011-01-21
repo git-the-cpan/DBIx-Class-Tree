@@ -1,6 +1,22 @@
 NAME
     DBIx::Class::Tree - Manipulate and anaylze tree structured data.
 
+GETTING HELP/SUPPORT
+    The community can be found via:
+
+    *   IRC: irc.perl.org#dbix-class
+
+    *   Mailing list: <http://lists.scsys.co.uk/mailman/listinfo/dbix-class>
+
+    *   RT Bug Tracker:
+        <https://rt.cpan.org/Dist/Display.html?Queue=DBIx-Class-Tree>
+
+    *   gitweb:
+        <http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=dbsrgits/DBIx-Class-
+        Tree.git>
+
+    *   git: <git://git.shadowcat.co.uk/dbsrgits/DBIx-Class-Tree.git>
+
 DESCRIPTION
     The tree modules provide the tools to represent, modify, and analyze
     trees of data with DBIx::Class.

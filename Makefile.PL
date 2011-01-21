@@ -11,7 +11,7 @@ perl_version    '5.008001';
 all_from        'lib/DBIx/Class/Tree.pm';
 readme_from     'lib/DBIx/Class/Tree.pm';
 
-resources 'repository'  => 'http://dev.catalyst.perl.org/repos/bast/DBIx-Class-Tree/';
+resources 'repository'  => 'http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=dbsrgits/DBIx-Class-Tree.git';
 
 requires        'DBIx::Class' => '0.08100';
 test_requires   'Test::Exception';

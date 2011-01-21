@@ -309,10 +309,7 @@ Returns 1 if the object has no children, and 0 otherwise.
 sub is_leaf {
     my( $self ) = @_;
 
-    my $has_child = $self->result_source->resultset->search(
-        { $self->_parent_column => $self->id() },
-        { limit => 1 }
-    )->count();
+    my $has_child = $self->children_rs->count();
 
     return $has_child ? 0 : 1;
 }

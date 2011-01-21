@@ -23,5 +23,5 @@ requires:
   perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
-  repository: http://dev.catalyst.perl.org/repos/bast/DBIx-Class-Tree/
-version: 0.03002
+  repository: http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=dbsrgits/DBIx-Class-Tree.git
+version: 0.03003

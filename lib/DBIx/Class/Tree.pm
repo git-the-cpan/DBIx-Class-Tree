@@ -6,7 +6,7 @@ use warnings;
 
 use base qw( DBIx::Class );
 
-our $VERSION = '0.03002';
+our $VERSION = '0.03003';
 
 1;
 __END__
@@ -14,6 +14,27 @@ __END__
 =head1 NAME
 
 DBIx::Class::Tree - Manipulate and anaylze tree structured data.
+
+=head1 GETTING HELP/SUPPORT
+
+The community can be found via:
+
+=over
+
+=item * IRC: irc.perl.org#dbix-class
+
+=for html
+<a href="http://chat.mibbit.com/#dbix-class@irc.perl.org">(click for instant chatroom login)</a>
+
+=item * Mailing list: L<http://lists.scsys.co.uk/mailman/listinfo/dbix-class>
+
+=item * RT Bug Tracker: L<https://rt.cpan.org/Dist/Display.html?Queue=DBIx-Class-Tree>
+
+=item * gitweb: L<http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=dbsrgits/DBIx-Class-Tree.git>
+
+=item * git: L<git://git.shadowcat.co.uk/dbsrgits/DBIx-Class-Tree.git>
+
+=back
 
 =head1 DESCRIPTION
 
